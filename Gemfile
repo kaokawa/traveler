@@ -73,3 +73,5 @@ gem "refile-mini_magick"
 gem 'ffi'
 
 gem "sassc-rails"
+
+gem 'devise'
