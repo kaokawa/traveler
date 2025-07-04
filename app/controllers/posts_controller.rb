@@ -15,7 +15,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-  end
+    @comment = Comment.new
+    @comments = @post.comments.page(params[:page]).per(7).reverse_order
+  end 
 
   def edit
     @post = Post.find(params[:id])
