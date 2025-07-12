@@ -77,3 +77,6 @@ gem "sassc-rails"
 gem 'devise'
 
 gem 'kaminari'
+
+gem 'enum_help'
+
