@@ -35,6 +35,22 @@
         <h6>フォロワー<%= @follower_users.count %></h6>
       <% end %>
     </div>
+  
+    <% unless @user.id == current_user.id %>
+      <% if (current_user.following? @user) && (@user.following? current_user) %>
+      <% if @isRoom == true %>
+        <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
+      <% else %>
+        <%= form_for @room do |f| %>
+          <%= fields_for @entry do |e| %>
+            <%= e.hidden_field :user_id, value: @user.id %>
+          <% end %>
+          <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+        <% end %>
+      <% end %>
+      <% end %>
+    <% end %>
+
     <div class="row mt-5 index-left w-100">
       <% @posts.each do |post| %>
         <div class="one-post col-sm-3 mb-3">
