@@ -22,6 +22,7 @@ class UsersController < ApplicationController
           end
         end
       end
+    end
     if @isRoom
     else
       @room = Room.new
@@ -53,4 +54,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :profile, :profile_image)
   end
+
 end
